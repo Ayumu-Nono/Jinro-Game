@@ -1,0 +1,15 @@
+話し合いの時間です
+<br>
+
+生き残っている人
+{% for player in players %}
+    <li>{{ player.name }}</li>
+{% endfor %}
+
+死んだ人
+{% for dead_player in dead_players %}
+<li>{{ dead_player.name }}</li>
+{% endfor %}
+
+<br>
+<a href="/vote_form">投票へ</a>

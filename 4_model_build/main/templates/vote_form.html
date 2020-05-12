@@ -1,0 +1,11 @@
+投票の時間です
+<br>
+
+<form action="{{ url_for('vote')}}" method="POST">
+{% for player in players %}
+	<input type="radio" name="vote" value="{{ player.id }}">{{ player.name }} <br>
+{% endfor %}
+	<input type="submit" value="投票">
+</form>
+
+

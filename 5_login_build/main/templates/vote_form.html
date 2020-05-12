@@ -1,0 +1,17 @@
+投票の時間です
+<br>
+
+<form action="{{ url_for('vote')}}" method="POST">
+{% for player in players %}
+	<input type="radio" name="vote" value="{{ player.user_id }}">{{ player.name }} <br>
+{% endfor %}
+	あなたは部屋ID:{{ group_id }}のメンバーですか？<br>
+	<input type="radio" name='group_id' value="{{ group_id }}">はい
+	<br>
+	{{ login_user.name }}さんで間違い無いですか？<br>
+	<input type="radio" name="user_id" value="{{ login_user.user_id }}">はい
+	<br>
+	<input type="submit" value="投票">
+</form>
+
+

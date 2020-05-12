@@ -1,0 +1,41 @@
+夜になりました。
+それぞれ夜の行動を選択して下さい。
+
+
+人狼の人は殺す人を選んでください
+<form action="{{ url_for('night_action')}}" method="POST">
+    {% for player in players %}
+        <input type="radio" name="bite" value="{{ player.user_id }}">{{ player.name }} <br>
+    {% endfor %}
+        
+
+    あなたは部屋ID:{{ group_id }}のメンバーですか？<br>
+	<input type="radio" name='group_id' value="{{ group_id }}">はい
+	<br>
+	{{ login_user.name }}さんで間違い無いですか？<br>
+	<input type="radio" name="user_id" value="{{ login_user.user_id }}">はい
+	<br>
+    <input type="submit" value="噛む">
+    </form>
+
+
+村人の人は疑い深い人を選んでください
+<form action="{{ url_for('night_action')}}" method="POST">
+    {% for player in players %}
+        <input type="radio" name="damy" value="{{ player.user_id }}">{{ player.name }} <br>
+    {% endfor %}
+        
+
+    あなたは部屋ID:{{ group_id }}のメンバーですか？<br>
+	<input type="radio" name='group_id' value="{{ group_id }}">はい
+	<br>
+	{{ login_user.name }}さんで間違い無いですか？<br>
+	<input type="radio" name="user_id" value="{{ login_user.user_id }}">はい
+	<br>
+    <input type="submit" value="疑う">
+    </form>
+
+
+<br>
+
+

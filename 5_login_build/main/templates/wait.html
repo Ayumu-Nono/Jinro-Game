@@ -1,0 +1,32 @@
+待機部屋<br>
+
+ようこそ{{ login_user.name }}さん
+
+この部屋は現在以下の人たちが参加しています。<br>
+{% for player in players %}
+ID:{{ player.user_id }} 名前:{{ player.name }} <br>
+{% endfor %}
+
+
+{% if not is_preparation_okay %}
+
+<br>
+全員集まったらこのボタンを押して下さい
+
+<form action="{{ url_for('prepareration_okay')}}" method="POST">
+    あなたは部屋ID:{{ group_id }}のメンバーですか？<br>
+    <input type="radio" name='group_id' value="{{ group_id }}">はい
+    <br>
+    {{ login_user.name }}さんで間違い無いですか？<br>
+    <input type="radio" name="user_id" value="{{ login_user.user_id }}">はい
+    <br>
+    <input type="submit" value="準備オッケー">
+</form>
+<br>
+{% else %}    
+
+他の人の参加を待って下さい。
+
+{% endif %}
+    
+    

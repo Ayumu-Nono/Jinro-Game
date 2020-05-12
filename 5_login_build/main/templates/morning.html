@@ -1,0 +1,17 @@
+
+{% if not is_bite_completed %}
+他のプレイヤーの操作を待っています。
+{% else %}
+朝になりました。<br>
+結果<br>
+{% if killed_player %}
+{{ killed_player.name }}さんが襲撃されました。
+{% else %}
+昨晩は誰も犠牲になりませんでした。
+{% endif %}
+<br>
+{% endif %}
+
+
+<br>
+<a href="/noon/{{ group_id }}/{{ login_user.user_id }}">話し合いをする</a>

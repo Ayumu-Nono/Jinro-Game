@@ -1,0 +1,17 @@
+{% if not vote_completed %}
+結果待ちです
+{% else %}
+結果がでました<br>
+結果<br>
+{{ executed_player.name }}さんが処刑されました。
+<br>
+詳細<br>
+{% for player in players %}
+{{ player.name }} {{ player.votes }}票<br>
+{% endfor %}
+
+{% endif %}
+
+<a href="/night">夜</a>
+
+

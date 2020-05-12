@@ -1,0 +1,15 @@
+話し合いの時間です
+<br>
+
+生き残っている人
+{% for player in players %}
+    <li>{{ player.name }} 生死:{{ player.is_alive }} 役職:{{ player.role }} 票:{{ player.votes }} 守護:{{ player.is_protected }} 噛み候補:{{ player.bitten }}</li>
+{% endfor %}
+
+死んだ人
+{% for player in dead_players %}
+<li>{{ player.name }} 生死:{{ player.is_alive }} 役職:{{ player.role }} 票:{{ player.votes }} 守護:{{ player.is_protected }} 噛み候補:{{ player.bitten }}</li>
+{% endfor %}
+
+<br>
+<a href="/vote_form/{{ group_id }}/{{ login_user.user_id }}">投票へ</a>
